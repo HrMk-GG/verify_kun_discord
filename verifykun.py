@@ -63,7 +63,7 @@ class CaptchaView(discord.ui.View):
         await interaction.response.send_message("📩 DMを確認してください。", ephemeral=True)
 
         try:
-            msg = await bot.wait_for("message", timeout=60.0, check=check)
+            msg = await bot.wait_for("message", timeout=60, check=check)
             if msg.content.strip().upper() == self.codes[interaction.user.id]:
                 role = interaction.guild.get_role(self.role_id)
                 if role:
